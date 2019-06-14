@@ -44,6 +44,8 @@
 LiquidCrystal lcd(2, 3, 4, 5, 6, 7 );
 
 boolean stick_switch();
+boolean led_switch();
+
 volatile boolean R3 = false;
 volatile boolean led = false;
 
