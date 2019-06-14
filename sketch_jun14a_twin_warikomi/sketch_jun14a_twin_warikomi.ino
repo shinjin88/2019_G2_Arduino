@@ -22,11 +22,11 @@
           PCMSK0=0;
        　 PCMSK1=0;
           PCMSK2=1<<(20-16);又は　PCMSK2 |=(1<<PCINT20);
-          PCICR=1<<2;又は　PCICR |=(1<<PCICR2);
+          PCICR=1<<2;又は　PCICR |=(1<<PCIE2);　//
 
           の様に書く
 
-        INT
+        
 
   割り込みハンドルの書き方
     ISR(PCINT2_vect(hardware/tools/avr/avr/include/avr/iom328p.hを参照，))
