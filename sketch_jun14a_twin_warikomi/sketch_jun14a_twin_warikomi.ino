@@ -37,18 +37,18 @@
 
 */
 
-//#include<avr/interrupt.h>
-
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(2, 3, 4, 5, 6, 7 );
 
 boolean stick_switch();
+boolean led_switch();
+
 volatile boolean R3 = false;
 volatile boolean led = false;
 
 ISR(PCINT0_vect) {
-  R3 = stick_switch();
+  R3 = stick_switch();  //スイッチは割り込みで検出
   led = led_switch();
 }
 
@@ -77,7 +77,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  double  x = analogRead(0);
+  double  x = analogRead(0);//ジョイスティックのＸ軸とＹ軸をよむ
   double  y = analogRead(1);
   lcd.setCursor(0, 0);
   lcd.print("X:");
